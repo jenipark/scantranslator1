@@ -471,6 +471,7 @@ with left:
 
         ss["target_lang_key"] = chosen_tgt
 
+    # ...existing code...
     # PDF controls
     selected_image_bytes, selected_mime = None, None
     pdf_bytes = None
@@ -487,18 +488,20 @@ with left:
         for i in range(show_n):
             thumb_png = render_pdf_page_thumb(pdf_bytes, i, 1.0)  # lighter & cached
             with cols[i]:
-<<<<<<< HEAD
-                st.image(thumb_png, caption=f"{ui_text('pages')} {i+1}", use_container_width=True)
-=======
                 st.image(thumb_png, caption=f"{ui_text('pages')} {i+1}", use_column_width=True)
->>>>>>> ea88045 (Initial commit: add ScanTranslate project)
 
         # Picker
-        ss["pdf_page_index"] = st.slider(f"{ui_text('pages')}", 1, page_count, ss.get("pdf_page_index", 0) + 1) - 1
+        ss["pdf_page_index"] = st.slider(
+            f"{ui_text('pages')}",
+            1,
+            page_count,
+            ss.get("pdf_page_index", 0) + 1
+        ) - 1
+
         # Render the selected page to feed OCR (cached)
         selected_image_bytes = render_pdf_page_thumb(pdf_bytes, ss["pdf_page_index"], 1.4)
         selected_mime = "image/png"
-
+# ...existing code...
     # PROCESS (only when form submitted)
     if uploaded is not None and 'submitted' in locals() and submitted:
         with st.container(border=True):

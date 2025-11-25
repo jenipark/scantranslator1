@@ -487,7 +487,11 @@ with left:
         for i in range(show_n):
             thumb_png = render_pdf_page_thumb(pdf_bytes, i, 1.0)  # lighter & cached
             with cols[i]:
+<<<<<<< HEAD
                 st.image(thumb_png, caption=f"{ui_text('pages')} {i+1}", use_container_width=True)
+=======
+                st.image(thumb_png, caption=f"{ui_text('pages')} {i+1}", use_column_width=True)
+>>>>>>> ea88045 (Initial commit: add ScanTranslate project)
 
         # Picker
         ss["pdf_page_index"] = st.slider(f"{ui_text('pages')}", 1, page_count, ss.get("pdf_page_index", 0) + 1) - 1

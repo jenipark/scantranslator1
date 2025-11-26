@@ -3,3 +3,24 @@ __pycache__/
 .env 
 .env
 scantranslator1/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+.venv/
+
+# Streamlit cache
+.streamlit/
+.cache/
+
+# Secrets
+.env
+*.env
+
+# OS files
+.DS_Store
+
